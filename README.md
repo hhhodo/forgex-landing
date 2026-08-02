@@ -23,8 +23,10 @@
 | 이미지 코너 | 카드·이미지 전반 둥근 모서리 | `image-radius=soft`, `card-radius=soft` |
 | 색상 | 그레이스케일 + 대형 다크(블랙) 블록이 화면을 지배 | `color=dominant`(브랜드 컬러 없이 디자인 키트 그레이스케일 토큰만 사용) |
 
-카드 캐러셀처럼 보이는 점(닷 인디케이터)과 화살표 버튼은 치트시트 Hard Rules(캐러셀/슬라이더/화살표 금지)에
-따라 전부 제거했습니다.
+화살표 버튼과 점(dot) 페이지네이션 UI는 치트시트 Hard Rules(캐러셀/슬라이더/화살표 금지)에 따라 제거했습니다.
+다만 1차 구현 이후 사용자가 INDUSTRY COVERAGE 섹션만 명시적으로 "슬라이드로, 가운데 카드는 커지고 양옆은
+작게"로 지정해, 화살표·점 인디케이터 없이 네이티브 가로 스크롤/드래그 + 중앙 카드 확대 방식으로 최소한의
+슬라이드 인터랙션만 예외적으로 반영했습니다.
 
 ## Variant
 
@@ -44,17 +46,31 @@ variant: typo=medium / image=high / color=dominant / image-radius=soft /
 
 ```
 Header       — full-bleed (sticky nav)
-Hero         — full-bleed — 8-4 (우측 4는 2단 스택, 우측 컬럼 space-8만큼 상단 오프셋)
-Partner      — 5-7 (좌: 텍스트+썸네일 4장 / 우: 세로 스택 이미지 5장)
-Showcase     — 3-3-3-3 (원형 산업분야 카드, 2·4번째 카드 하단 오프셋)
+Hero         — full-bleed — 8-4 (우측 4는 2단 스택, 타이틀만 남기고 텍스트 최소화, 하단 카드는 센터 정렬)
+Partner      — 5-7 (좌측 텍스트는 position:sticky로 고정 / 우측 이미지 5장이 스크롤에 따라 순차적으로 sticky 전환)
+Showcase     — full-bleed 가로 스크롤 슬라이드 (scroll-snap, 중앙 카드 확대·좌우 축소)
 Capabilities — full-bleed, dark — 6-6 × 4행 (행마다 좌우 교차: 그래픽↔텍스트)
-Reviews      — 3-3-3-3 (도입 후기 카드)
-CTA          — full-bleed, dark
-Footer       — full-bleed — 4-8 (우측 3열 중 CONTACT 컬럼만 상단 오프셋)
+Reviews      — 3-3-3-3 (카드 프레임 없이 원형 이미지 + 캡션만, 레퍼런스와 동일하게 박스/보더 제거)
+CTA          — full-bleed, dark (마우스 위치 기반 인터랙티브 도트 그리드: 커서 근처는 확대, 멀수록 축소)
+Footer       — full-bleed — 8-4 (CONTACT 컬럼만 유지, 브랜드 마크·구독 폼 제거)
 ```
 
-동일한 스플릿이 연속 섹션에서 반복되지 않도록 배치했습니다(예: Showcase와 Reviews 모두 `3-3-3-3`이지만
-사이에 `6-6` Capabilities 섹션을 배치).
+동일한 스플릿이 연속 섹션에서 반복되지 않도록 배치했습니다(Reviews의 `3-3-3-3`과 Footer의 `8-4`는 Hero의
+`8-4`, Capabilities의 `6-6`과 서로 인접하지 않음).
+
+## 피드백 반영 이력 (2차 수정)
+
+1차 구현 이후 사용자 피드백으로 다음을 수정했습니다.
+
+- 모든 뱃지/eyebrow 라벨의 배경을 제거하고 폰트 크기를 `--fs-body-1`(20px)로 통일. 자간·행간은 `styles.css`
+  토큰 상속값(`--tracking-kr`) 또는 디자인 키트 자체 규칙만 사용하고, 임의의 letter-spacing/line-height 값은
+  전부 제거.
+- 히어로 우측 카드 텍스트를 타이틀만 남기고 정리. 하단 다크 카드는 센터 정렬 + 더 큰 폰트(`h2`) + 짧은 문구로 교체.
+- Partner 섹션은 좌측 텍스트가 sticky로 고정된 채, 우측 이미지 5장이 스크롤에 따라 한 장씩 sticky로
+  겹쳐 나오는 스크롤리텔링 방식으로 재구현.
+- Reviews 섹션은 카드 프레임(보더/패딩)을 제거하고 원형 이미지를 키워 레퍼런스 스크린샷과 동일한 구성으로 교체.
+- CTA 섹션에 마우스 좌표 기반 인터랙티브 도트 그리드 추가(커서 근처 도트는 확대, 먼 도트는 축소).
+- Footer에서 COMPANY/SOLUTIONS 컬럼, FORGEX 브랜드 마크 텍스트, 이메일 구독 폼을 제거하고 CONTACT 컬럼만 유지.
 
 ## 반응형
 

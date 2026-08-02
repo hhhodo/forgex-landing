@@ -2,13 +2,13 @@
 <!--
   layout:
   1. Header       — full-bleed (sticky nav)
-  2. Hero         — full-bleed — 8-4 (우측 4는 2단 스택: 정보 카드 + 다크 CTA 카드, 우측 컬럼 상단 오프셋)
-  3. Partner      — 5-7 (좌: 텍스트+썸네일 4장 / 우: 세로 스택 이미지 5장)
-  4. Showcase     — 3-3-3-3 (원형 산업분야 카드, 2·4번째 카드 하단 오프셋)
+  2. Hero         — full-bleed — 8-4 (우측 4는 2단 스택, 짧은 타이틀만, 하단 카드는 센터 정렬)
+  3. Partner      — 5-7 (좌측 텍스트 sticky 고정 / 우측 이미지 5장이 스크롤에 따라 순차적으로 sticky 전환)
+  4. Showcase     — full-bleed 가로 스크롤 슬라이드 (중앙 카드 확대, 좌우 축소·페이드)
   5. Capabilities — full-bleed, dark — 6-6 × 4행 (행마다 좌우 교차)
-  6. Reviews      — 3-3-3-3 (도입 후기 카드)
-  7. CTA          — full-bleed, dark
-  8. Footer       — full-bleed — 4-8 (우측 컬럼 오프셋)
+  6. Reviews      — 3-3-3-3 (카드 프레임 없이 원형 이미지 + 캡션만)
+  7. CTA          — full-bleed, dark (마우스 위치 기반 인터랙티브 도트 그리드)
+  8. Footer       — full-bleed — 8-4 (CONTACT 컬럼만 유지, 구독 폼 제거)
 -->
 <!DOCTYPE html>
 <html lang="ko">
@@ -56,13 +56,10 @@
         </div>
         <div class="gcell hero__stack" style="grid-column:9/13;">
           <div class="hero__card">
-            <p class="eyebrow">SINCE 1998</p>
             <h3 class="h3">27년간 축적된<br>정밀 가공 기술</h3>
-            <p class="body-2 subtle">국내 3개 생산거점에서 자동차, 반도체, 물류 산업의 핵심 부품을 공급합니다.</p>
           </div>
           <div class="hero__card hero__card--dark">
-            <h3 class="h3">언제나<br>안정적인 품질</h3>
-            <p class="body-2 hero__card-body">24시간 품질 모니터링 시스템으로 불량률 0.02% 이하를 유지합니다.</p>
+            <h3 class="h2">타협 없는<br>품질.</h3>
             <a href="#contact" class="btn btn--outline btn--on-dark">도입 문의</a>
           </div>
         </div>
@@ -70,10 +67,10 @@
     </div>
   </section>
 
-  <!-- ============ PARTNER — 5-7 ============ -->
+  <!-- ============ PARTNER — 5-7 (좌측 sticky / 우측 순차 sticky) ============ -->
   <section class="section" id="partner">
     <div class="container grid" data-reveal>
-      <div class="gcell" style="grid-column:1/6;">
+      <div class="gcell partner__info" style="grid-column:1/6;">
         <p class="eyebrow">신뢰를 만드는 방식</p>
         <h2 class="h1 partner__title">믿을 수 있는<br>생산 파트너, FORGEX</h2>
         <p class="body-2 subtle partner__body measure">FORGEX는 자동차 부품, 반도체 장비, 산업용 로봇 등 다양한 산업 현장에 정밀 부품과 자동화 설비를 공급합니다. 설계·가공·조립·검수까지 전 공정을 사내에서 통합 관리해 납기와 품질을 동시에 지킵니다.</p>
@@ -95,35 +92,40 @@
     </div>
   </section>
 
-  <!-- ============ SHOWCASE — 3-3-3-3 ============ -->
-  <section class="section" id="showcase">
+  <!-- ============ SHOWCASE — full-bleed 슬라이드 (중앙 확대) ============ -->
+  <section class="section showcase" id="showcase">
     <div class="container">
       <div class="showcase__head" data-reveal>
         <p class="eyebrow" style="text-align:center;">INDUSTRY COVERAGE</p>
         <h2 class="h1" style="text-align:center;">생산 현장의 어려움을 줄이고<br>안정적인 운영을 지원합니다</h2>
         <p class="body-2 subtle" style="text-align:center;">업종에 특화된 자동화 설계로 다운타임을 최소화합니다.</p>
       </div>
-      <div class="grid showcase__grid" data-reveal>
-        <div class="gcell showcase__card" style="grid-column:1/4;">
-          <div class="img img--1-1 img--circle showcase__photo"></div>
-          <h3 class="h3">자동차 부품</h3>
-          <p class="body-2 subtle">24시간 무중단 생산 라인</p>
-        </div>
-        <div class="gcell showcase__card showcase__card--offset" style="grid-column:4/7;">
-          <div class="img img--1-1 img--circle showcase__photo"></div>
-          <h3 class="h3">반도체 장비</h3>
-          <p class="body-2 subtle">초정밀 클린룸 대응 설비</p>
-        </div>
-        <div class="gcell showcase__card" style="grid-column:7/10;">
-          <div class="img img--1-1 img--circle showcase__photo"></div>
-          <h3 class="h3">물류 자동화</h3>
-          <p class="body-2 subtle">AGV 기반 스마트 창고</p>
-        </div>
-        <div class="gcell showcase__card showcase__card--offset" style="grid-column:10/13;">
-          <div class="img img--1-1 img--circle showcase__photo"></div>
-          <h3 class="h3">정밀 가공</h3>
-          <p class="body-2 subtle">마이크로미터 단위 공차 관리</p>
-        </div>
+    </div>
+    <div class="showcase__track" id="showcaseTrack" data-reveal>
+      <div class="showcase__card">
+        <div class="img img--1-1 img--circle showcase__photo"></div>
+        <h3 class="h3">자동차 부품</h3>
+        <p class="body-2 subtle">24시간 무중단 생산 라인</p>
+      </div>
+      <div class="showcase__card">
+        <div class="img img--1-1 img--circle showcase__photo"></div>
+        <h3 class="h3">반도체 장비</h3>
+        <p class="body-2 subtle">초정밀 클린룸 대응 설비</p>
+      </div>
+      <div class="showcase__card">
+        <div class="img img--1-1 img--circle showcase__photo"></div>
+        <h3 class="h3">물류 자동화</h3>
+        <p class="body-2 subtle">AGV 기반 스마트 창고</p>
+      </div>
+      <div class="showcase__card">
+        <div class="img img--1-1 img--circle showcase__photo"></div>
+        <h3 class="h3">정밀 가공</h3>
+        <p class="body-2 subtle">마이크로미터 단위 공차 관리</p>
+      </div>
+      <div class="showcase__card">
+        <div class="img img--1-1 img--circle showcase__photo"></div>
+        <h3 class="h3">식품 포장</h3>
+        <p class="body-2 subtle">위생 기준 자동 밀봉 라인</p>
       </div>
     </div>
   </section>
@@ -223,8 +225,9 @@
     </div>
   </section>
 
-  <!-- ============ CTA (dark, full-bleed) ============ -->
+  <!-- ============ CTA (dark, full-bleed, 인터랙티브 도트) ============ -->
   <section class="cta" id="contact">
+    <div class="cta__dots" id="ctaDots" aria-hidden="true"></div>
     <div class="container cta__inner" data-reveal>
       <p class="badge cta__badge">지금 상담 신청</p>
       <h2 class="h1 cta__title">생산성의 기준을<br>바꾸는 시간</h2>
@@ -235,33 +238,14 @@
 
 </main>
 
-<!-- ============ FOOTER — 4-8 ============ -->
+<!-- ============ FOOTER — 8-4 ============ -->
 <footer class="footer">
   <div class="container grid" data-reveal>
-    <div class="gcell" style="grid-column:1/5;">
-      <p class="footer__mark">FORGEX</p>
+    <div class="gcell" style="grid-column:1/8;">
       <h2 class="h1 footer__title">SMART MANUFACTURING,<br>PRECISION DELIVERED.</h2>
     </div>
-    <div class="gcell footer__cols" style="grid-column:5/13;">
+    <div class="gcell footer__cols" style="grid-column:8/13;">
       <div class="footer__col">
-        <p class="eyebrow eyebrow--inverse">COMPANY</p>
-        <ul>
-          <li><a href="#partner">회사소개</a></li>
-          <li><a href="#partner">연혁</a></li>
-          <li><a href="#contact">인재채용</a></li>
-          <li><a href="#contact">오시는 길</a></li>
-        </ul>
-      </div>
-      <div class="footer__col">
-        <p class="eyebrow eyebrow--inverse">SOLUTIONS</p>
-        <ul>
-          <li><a href="#capabilities">자동화</a></li>
-          <li><a href="#capabilities">품질관리</a></li>
-          <li><a href="#capabilities">물류자동화</a></li>
-          <li><a href="#capabilities">설비유지보수</a></li>
-        </ul>
-      </div>
-      <div class="footer__col footer__col--offset">
         <p class="eyebrow eyebrow--inverse">CONTACT</p>
         <ul class="footer__contact-list">
           <li>대표전화 02-1234-5678</li>
@@ -270,11 +254,7 @@
         </ul>
       </div>
     </div>
-    <div class="gcell footer__subscribe" style="grid-column:1/13;">
-      <form class="footer__form" onsubmit="return false;">
-        <input class="footer__input" type="email" placeholder="이메일 주소를 입력하세요" aria-label="이메일 주소">
-        <button type="submit" class="btn btn--on-light">구독하기</button>
-      </form>
+    <div class="gcell footer__bottom-wrap" style="grid-column:1/13;">
       <div class="footer__bottom">
         <p class="body-2 footer__copyright">© 2026 FORGEX. All rights reserved.</p>
         <div class="footer__social" aria-hidden="true">
