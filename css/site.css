@@ -80,7 +80,7 @@
 .partner__thumbs .img{flex:1;}
 .partner__stack{display:flex;flex-direction:column;gap:var(--space-5);}
 .partner__photo{aspect-ratio:7/5;}
-.partner__frame .img{position:relative;}
+.partner__frame{position:relative;}
 .partner__frame .tag{position:absolute;right:var(--space-4);bottom:var(--space-4);
   background:var(--color-canvas);color:var(--text-default);font-size:var(--fs-body-1);
   font-weight:var(--fw-strong);padding:6px 14px;border-radius:var(--radius-circle);}
