@@ -69,7 +69,7 @@
 .partner__body{margin-block-end:var(--space-4);}
 .partner__thumbs{display:flex;gap:var(--space-3);margin-block-start:var(--space-6);}
 .partner__thumbs .img{flex:1;}
-.partner__info{position:sticky;top:calc(88px + var(--space-6));align-self:start;}
+.partner__info{position:sticky;top:calc(88px + var(--space-6));}
 .partner__stack{display:flex;flex-direction:column;gap:0;}
 .partner__frame{position:sticky;top:calc(88px + var(--space-6));background:var(--color-canvas);}
 .partner__frame:nth-child(1){z-index:1;}
