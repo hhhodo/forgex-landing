@@ -18,8 +18,8 @@
 <title>FORGEX — 정밀 제조를 위한 스마트 매뉴팩처링 파트너</title>
 <meta name="description" content="설계부터 양산까지, FORGEX가 만드는 신뢰할 수 있는 제조 인프라. 자동화, 품질관리, 물류자동화, 설비유지보수 솔루션을 제공합니다.">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-<link rel="stylesheet" href="css/styles.css?v=14">
-<link rel="stylesheet" href="css/site.css?v=14">
+<link rel="stylesheet" href="css/styles.css?v=15">
+<link rel="stylesheet" href="css/site.css?v=15">
 <noscript><style>[data-reveal]{opacity:1!important;transform:none!important;}</style></noscript>
 </head>
 <body>
@@ -129,30 +129,69 @@
     </div>
     <div class="showcase__track" id="showcaseTrack" data-reveal>
       <div class="showcase__card">
-        <div class="img img--1-1 img--circle showcase__photo"></div>
-        <h3 class="h3">자동차 부품</h3>
-        <p class="body-2 subtle">24시간 무중단 생산 라인</p>
+        <img class="showcase__photo" src="assets/images/marcin-jozwiak-oh0DITWoHi4-unsplash.jpg" alt="자동차 부품 생산 라인" loading="lazy">
+        <div class="showcase__overlay"></div>
+        <div class="showcase__label">
+          <h3 class="showcase__title">자동차 부품</h3>
+          <div class="showcase__tags">
+            <span class="pill pill--ghost">24시간 무중단 생산</span>
+            <span class="pill pill--ghost">예지보전 지원</span>
+          </div>
+        </div>
       </div>
       <div class="showcase__card">
-        <div class="img img--1-1 img--circle showcase__photo"></div>
-        <h3 class="h3">반도체 장비</h3>
-        <p class="body-2 subtle">초정밀 클린룸 대응 설비</p>
+        <img class="showcase__photo" src="assets/images/kseniia-ilinykh-82ZiY5pzl1c-unsplash.jpg" alt="반도체 장비 클린룸" loading="lazy">
+        <div class="showcase__overlay"></div>
+        <div class="showcase__label">
+          <h3 class="showcase__title">반도체 장비</h3>
+          <div class="showcase__tags">
+            <span class="pill pill--ghost">초정밀 클린룸 대응</span>
+            <span class="pill pill--ghost">파티클 제어</span>
+          </div>
+        </div>
       </div>
       <div class="showcase__card">
-        <div class="img img--1-1 img--circle showcase__photo"></div>
-        <h3 class="h3">물류 자동화</h3>
-        <p class="body-2 subtle">AGV 기반 스마트 창고</p>
+        <img class="showcase__photo" src="assets/images/elevate-dI-aXC7DWpQ-unsplash.jpg" alt="물류 자동화 창고" loading="lazy">
+        <div class="showcase__overlay"></div>
+        <div class="showcase__label">
+          <h3 class="showcase__title">물류 자동화</h3>
+          <div class="showcase__tags">
+            <span class="pill pill--ghost">AGV 기반 운영</span>
+            <span class="pill pill--ghost">실시간 재고 추적</span>
+          </div>
+        </div>
       </div>
       <div class="showcase__card">
-        <div class="img img--1-1 img--circle showcase__photo"></div>
-        <h3 class="h3">정밀 가공</h3>
-        <p class="body-2 subtle">마이크로미터 단위 공차 관리</p>
+        <img class="showcase__photo" src="assets/images/adrian-sulyok-sczNLg6rrhQ-unsplash.jpg" alt="정밀 가공 부품" loading="lazy">
+        <div class="showcase__overlay"></div>
+        <div class="showcase__label">
+          <h3 class="showcase__title">정밀 가공</h3>
+          <div class="showcase__tags">
+            <span class="pill pill--ghost">마이크로미터 공차</span>
+            <span class="pill pill--ghost">전수 품질검사</span>
+          </div>
+        </div>
       </div>
       <div class="showcase__card">
-        <div class="img img--1-1 img--circle showcase__photo"></div>
-        <h3 class="h3">식품 포장</h3>
-        <p class="body-2 subtle">위생 기준 자동 밀봉 라인</p>
+        <img class="showcase__photo" src="assets/images/white-rainforest-1ydzob4cphs-unsplash.jpg" alt="식품 포장 라인" loading="lazy">
+        <div class="showcase__overlay"></div>
+        <div class="showcase__label">
+          <h3 class="showcase__title">식품 포장</h3>
+          <div class="showcase__tags">
+            <span class="pill pill--ghost">위생 기준 자동 밀봉</span>
+            <span class="pill pill--ghost">이물 검출 연동</span>
+          </div>
+        </div>
       </div>
+    </div>
+    <div class="showcase__nav" data-reveal>
+      <button class="showcase__arrow" id="showcasePrev" type="button" aria-label="이전 카드">
+        <img src="assets/icons/showcase-arrow.svg" alt="" width="12" height="10">
+      </button>
+      <div class="showcase__dots" id="showcaseDots"></div>
+      <button class="showcase__arrow" id="showcaseNext" type="button" aria-label="다음 카드">
+        <img src="assets/icons/showcase-arrow-right.svg" alt="" width="12" height="10">
+      </button>
     </div>
   </section>
 
@@ -324,6 +363,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=14"></script>
+<script src="js/main.js?v=15"></script>
 </body>
 </html>

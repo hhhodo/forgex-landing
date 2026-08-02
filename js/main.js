@@ -94,7 +94,23 @@
   const track = document.getElementById('showcaseTrack');
   if (track) {
     const cards = [...track.querySelectorAll('.showcase__card')];
+    const dotsWrap = document.getElementById('showcaseDots');
+    const prevBtn = document.getElementById('showcasePrev');
+    const nextBtn = document.getElementById('showcaseNext');
     let rafId = null;
+    let activeIndex = 0;
+
+    if (dotsWrap) {
+      cards.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'showcase__dot';
+        dot.setAttribute('aria-label', `${i + 1}번째 카드로 이동`);
+        dot.addEventListener('click', () => cards[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' }));
+        dotsWrap.appendChild(dot);
+      });
+    }
+    const dots = dotsWrap ? [...dotsWrap.querySelectorAll('.showcase__dot')] : [];
 
     const updateCenter = () => {
       rafId = null;
@@ -102,14 +118,22 @@
       const centerX = trackRect.left + trackRect.width / 2;
       let closest = null;
       let closestDist = Infinity;
-      cards.forEach((card) => {
+      cards.forEach((card, i) => {
         const r = card.getBoundingClientRect();
         const dist = Math.abs(r.left + r.width / 2 - centerX);
-        if (dist < closestDist) { closestDist = dist; closest = card; }
+        if (dist < closestDist) { closestDist = dist; closest = card; activeIndex = i; }
       });
       cards.forEach((card) => card.classList.toggle('is-center', card === closest));
+      dots.forEach((dot, i) => dot.classList.toggle('is-active', i === activeIndex));
     };
     const scheduleUpdate = () => { if (!rafId) rafId = requestAnimationFrame(updateCenter); };
+
+    const goTo = (index) => {
+      const clamped = Math.max(0, Math.min(cards.length - 1, index));
+      cards[clamped].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    };
+    prevBtn?.addEventListener('click', () => goTo(activeIndex - 1));
+    nextBtn?.addEventListener('click', () => goTo(activeIndex + 1));
 
     updateCenter();
     track.addEventListener('scroll', scheduleUpdate, { passive: true });
