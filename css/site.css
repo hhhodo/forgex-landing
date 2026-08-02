@@ -9,10 +9,6 @@
 
 .gcell{min-width:0;}
 
-/* partner 섹션 이미지가 스크롤 중 잠깐 멈췄다 다음으로 넘어가도록,
-   해당 카드에만 스냅 포인트를 둠(proximity라 다른 섹션 스크롤엔 영향 없음) */
-html{scroll-snap-type:y proximity;}
-
 /* ---------- eyebrow / badge (배경 없음, 본문 크기) ---------- */
 .eyebrow{font-size:var(--fs-body-1);font-weight:var(--fw-strong);
   text-transform:uppercase;color:var(--text-subtle);
@@ -84,9 +80,10 @@ html{scroll-snap-type:y proximity;}
 .partner__thumbs .img{flex:1;}
 .partner__info{position:sticky;top:calc(88px + var(--space-6));}
 .partner__stack{display:flex;flex-direction:column;gap:var(--space-5);}
-.partner__frame{position:sticky;top:calc(88px + var(--space-6));background:var(--color-canvas);
-  scroll-snap-align:start;}
-.partner__photo{aspect-ratio:7/5;}
+.partner__frame{position:sticky;top:calc(88px + var(--space-6));background:var(--color-canvas);}
+.partner__photo{aspect-ratio:7/5;border-radius:0;}
+.partner__frame:first-child .partner__photo{border-radius:var(--radius-lg) var(--radius-lg) 0 0;}
+.partner__frame:last-child .partner__photo{border-radius:0 0 var(--radius-lg) var(--radius-lg);}
 .partner__frame:nth-child(1){z-index:1;}
 .partner__frame:nth-child(2){z-index:2;}
 .partner__frame:nth-child(3){z-index:3;}
