@@ -45,7 +45,7 @@
 
 /* ---------- hero (좌우 패널이 동일한 전체 높이를 공유, 텍스트는 패널 하단에 오버레이) ---------- */
 .hero{padding-block-start:var(--space-9);padding-block-end:var(--space-section);}
-.hero__grid{align-items:stretch;min-height:min(820px,80vh);}
+.hero__grid{align-items:stretch;}
 .hero__visual{position:relative;overflow:hidden;background:var(--color-placeholder);border-radius:var(--radius-sm);
   padding:var(--space-7);touch-action:pan-y;cursor:grab;}
 .hero__visual.is-dragging{cursor:grabbing;}
@@ -65,9 +65,9 @@
 .hero__pause.is-paused .hero__pause-icon{width:0;height:0;border-style:solid;border-width:6px 0 6px 9px;
   border-color:transparent transparent transparent var(--text-default);}
 .hero__pause.is-paused .hero__pause-icon span{display:none;}
-.hero__stack{display:flex;flex-direction:column;gap:var(--grid-gutter-lg);height:100%;}
-.hero__card{flex:1;padding:var(--space-6);border-radius:var(--radius-sm);background:var(--color-placeholder);
-  display:flex;flex-direction:column;justify-content:flex-end;}
+.hero__stack{display:flex;flex-direction:column;gap:var(--grid-gutter-lg);align-self:start;width:100%;}
+.hero__card{flex:none;width:100%;aspect-ratio:1/1;padding:var(--space-6);border-radius:var(--radius-sm);
+  background:var(--color-placeholder);display:flex;flex-direction:column;justify-content:flex-end;}
 .hero__card-text{color:var(--text-subtle);}
 .hero__card--dark{background:var(--color-primary-900);color:var(--text-default-inverse);
   align-items:center;justify-content:center;text-align:center;gap:var(--space-5);}
@@ -81,6 +81,7 @@
 .partner__info{position:sticky;top:calc(88px + var(--space-6));}
 .partner__stack{display:flex;flex-direction:column;gap:0;}
 .partner__frame{position:sticky;top:calc(88px + var(--space-6));background:var(--color-canvas);}
+.partner__photo{aspect-ratio:7/5;}
 .partner__frame:nth-child(1){z-index:1;}
 .partner__frame:nth-child(2){z-index:2;}
 .partner__frame:nth-child(3){z-index:3;}
@@ -156,10 +157,9 @@
 /* ---------- responsive ---------- */
 @media (max-width:1024px){
   .grid .gcell{grid-column:1/13!important;margin-block-start:0!important;}
-  .hero__grid{grid-template-columns:1fr!important;min-height:0;}
+  .hero__grid{grid-template-columns:1fr!important;}
   .hero__visual{min-height:420px;}
-  .hero__stack{height:auto;margin-block-start:var(--space-6);}
-  .hero__card{min-height:160px;}
+  .hero__stack{margin-block-start:var(--space-6);}
   .partner__info,.partner__frame{position:static;}
   .partner__stack{gap:var(--space-4);}
   .capability-row .gcell:first-child{order:1;}

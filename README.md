@@ -47,12 +47,19 @@ variant: typo=medium / image=high / color=dominant / image-radius=soft /
 | 이미지 비중 | `high` | 히어로 비주얼 + 파트너 스택 5장 + 원형 카드 4장 + 후기 카드 4장 |
 | 컬러 | `dominant` | Capabilities/CTA/Footer 3개 섹션이 `--color-primary-900` 블랙 블록으로 화면을 지배 |
 
+## 컨테이너
+
+전 섹션 `.container.container--wide`(1600px) 사용. 초기 구현에서 기본값(1440px)을 그대로 썼던 것을
+사용자 지적에 따라 전 섹션 일괄 수정.
+
 ## 레이아웃 — 그리드 값
 
 ```
 Header       — full-bleed (sticky nav)
-Hero         — full-bleed — 8-4 (우측 4는 2단 스택, 타이틀만 남기고 텍스트 최소화, 하단 카드는 센터 정렬)
-Partner      — 5-7 (좌측 텍스트는 position:sticky로 고정 / 우측 이미지 5장이 스크롤에 따라 순차적으로 sticky 전환)
+Hero         — full-bleed — 73:27 실측 비율 (우측 카드 2개는 정사각형 고정, 좌측 패널 높이는 그 정사각형
+                합에 맞춰 자동으로 줄어듦 — 우측이 기준, 좌측이 종속)
+Partner      — 5-7 (좌측 텍스트는 position:sticky로 고정 / 우측 이미지 5장이 스크롤에 따라 순차적으로 sticky
+                전환, 이미지 사이 거터 없음(gap:0), 비율은 좌측 컬럼 폭에 맞춰 7:5로 확대)
 Showcase     — full-bleed 가로 스크롤 슬라이드 (scroll-snap, 중앙 카드 확대·좌우 축소)
 Capabilities — full-bleed, dark — 6-6 × 4행 (행마다 좌우 교차: 그래픽↔텍스트)
 Reviews      — 3-3-3-3 (카드 프레임 없이 원형 이미지 + 캡션만, 레퍼런스와 동일하게 박스/보더 제거)
