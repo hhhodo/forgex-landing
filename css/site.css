@@ -46,16 +46,25 @@
 /* ---------- hero (좌우 패널이 동일한 전체 높이를 공유, 텍스트는 패널 하단에 오버레이) ---------- */
 .hero{padding-block-start:var(--space-9);padding-block-end:var(--space-section);}
 .hero__grid{align-items:stretch;min-height:min(820px,80vh);}
-.hero__visual{position:relative;background:var(--color-placeholder);border-radius:var(--radius-sm);
-  padding:var(--space-7);display:flex;flex-direction:column;justify-content:flex-end;}
+.hero__visual{position:relative;overflow:hidden;background:var(--color-placeholder);border-radius:var(--radius-sm);
+  padding:var(--space-7);touch-action:pan-y;cursor:grab;}
+.hero__visual.is-dragging{cursor:grabbing;}
+.hero__slides{position:relative;height:100%;}
+.hero__slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;
+  opacity:0;pointer-events:none;transition:opacity .5s ease;}
+.hero__slide.is-active{opacity:1;pointer-events:auto;}
 .hero__title{margin-block-end:var(--space-4);}
 .hero__foot{display:flex;flex-direction:column;align-items:flex-start;gap:var(--space-6);}
 .hero__desc{color:var(--text-subtle);}
-.hero__dots{position:absolute;right:var(--space-7);bottom:var(--space-7);display:flex;align-items:center;gap:var(--space-2);}
-.hero__dot{width:6px;height:6px;border-radius:var(--radius-circle);background:var(--color-primary-300);}
+.hero__dots{position:absolute;right:var(--space-7);bottom:var(--space-7);z-index:1;display:flex;align-items:center;gap:var(--space-2);}
+.hero__dot{width:6px;height:6px;padding:0;border:none;border-radius:var(--radius-circle);background:var(--color-primary-300);cursor:pointer;}
 .hero__dot.is-active{background:var(--text-default);}
-.hero__pause{display:flex;gap:2px;margin-inline-start:var(--space-3);}
-.hero__pause span{width:2px;height:12px;background:var(--text-default);display:block;}
+.hero__pause{display:flex;align-items:center;margin-inline-start:var(--space-3);padding:0;border:none;background:none;cursor:pointer;}
+.hero__pause-icon{display:flex;gap:2px;}
+.hero__pause-icon span{width:2px;height:12px;background:var(--text-default);display:block;}
+.hero__pause.is-paused .hero__pause-icon{width:0;height:0;border-style:solid;border-width:6px 0 6px 9px;
+  border-color:transparent transparent transparent var(--text-default);}
+.hero__pause.is-paused .hero__pause-icon span{display:none;}
 .hero__stack{display:flex;flex-direction:column;gap:var(--grid-gutter-lg);height:100%;}
 .hero__card{flex:1;padding:var(--space-6);border-radius:var(--radius-sm);background:var(--color-placeholder);
   display:flex;flex-direction:column;justify-content:flex-end;}

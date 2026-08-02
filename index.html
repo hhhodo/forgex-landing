@@ -46,16 +46,36 @@
     <div class="container">
       <div class="grid hero__grid" data-reveal style="grid-template-columns:73fr 27fr;">
         <div class="gcell hero__visual">
-          <h1 class="hero__title">흔들림 없는 생산 라인을<br>만드는 정밀 제조 파트너</h1>
-          <div class="hero__foot">
-            <p class="hero__desc">설계부터 양산까지, FORGEX가 만드는 신뢰할 수 있는 제조 인프라를 경험하세요.</p>
-            <a href="#capabilities" class="btn btn--solid">솔루션 살펴보기</a>
+          <div class="hero__slides" id="heroSlides">
+            <div class="hero__slide is-active">
+              <h1 class="hero__title">흔들림 없는 생산 라인을<br>만드는 정밀 제조 파트너</h1>
+              <div class="hero__foot">
+                <p class="hero__desc">설계부터 양산까지, FORGEX가 만드는 신뢰할 수 있는 제조 인프라를 경험하세요.</p>
+                <a href="#capabilities" class="btn btn--solid">솔루션 살펴보기</a>
+              </div>
+            </div>
+            <div class="hero__slide">
+              <h1 class="hero__title">24시간 멈추지 않는<br>자동화 생산 라인</h1>
+              <div class="hero__foot">
+                <p class="hero__desc">센서 기반 예지 정비로 설비 다운타임을 최소화합니다.</p>
+                <a href="#capabilities" class="btn btn--solid">자동화 솔루션 보기</a>
+              </div>
+            </div>
+            <div class="hero__slide">
+              <h1 class="hero__title">전수 검사로<br>완성하는 품질</h1>
+              <div class="hero__foot">
+                <p class="hero__desc">AI 비전 검사와 실시간 데이터로 불량을 원천 차단합니다.</p>
+                <a href="#capabilities" class="btn btn--solid">품질 관리 알아보기</a>
+              </div>
+            </div>
           </div>
-          <div class="hero__dots" aria-hidden="true">
-            <span class="hero__dot"></span>
-            <span class="hero__dot is-active"></span>
-            <span class="hero__dot"></span>
-            <span class="hero__pause"><span></span><span></span></span>
+          <div class="hero__dots" id="heroDots">
+            <button type="button" class="hero__dot is-active" data-slide="0" aria-label="1번째 슬라이드로 이동"></button>
+            <button type="button" class="hero__dot" data-slide="1" aria-label="2번째 슬라이드로 이동"></button>
+            <button type="button" class="hero__dot" data-slide="2" aria-label="3번째 슬라이드로 이동"></button>
+            <button type="button" class="hero__pause" id="heroPause" aria-label="자동 재생 일시정지" aria-pressed="false">
+              <span class="hero__pause-icon"><span></span><span></span></span>
+            </button>
           </div>
         </div>
         <div class="gcell hero__stack">

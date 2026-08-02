@@ -14,6 +14,75 @@
     navToggle.setAttribute('aria-expanded', String(isOpen));
   });
 
+  // ---------- hero: auto-advancing slider (dots + pause + drag/swipe) ----------
+  const heroVisual = document.querySelector('.hero__visual');
+  const heroSlidesEl = document.getElementById('heroSlides');
+  const heroPause = document.getElementById('heroPause');
+  const heroDotsWrap = document.getElementById('heroDots');
+  if (heroVisual && heroSlidesEl) {
+    const slides = [...heroSlidesEl.querySelectorAll('.hero__slide')];
+    const dots = [...heroDotsWrap.querySelectorAll('.hero__dot')];
+    const AUTO_MS = 5000;
+    const reduceMotionHero = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let current = 0;
+    let timer = null;
+    let paused = reduceMotionHero;
+
+    const render = () => {
+      slides.forEach((s, i) => s.classList.toggle('is-active', i === current));
+      dots.forEach((d, i) => d.classList.toggle('is-active', i === current));
+    };
+    const goTo = (index) => {
+      current = ((index % slides.length) + slides.length) % slides.length;
+      render();
+    };
+    const next = () => goTo(current + 1);
+
+    const stop = () => { if (timer) { clearInterval(timer); timer = null; } };
+    const start = () => {
+      stop();
+      if (paused) return;
+      timer = setInterval(next, AUTO_MS);
+    };
+
+    heroPause.addEventListener('click', () => {
+      paused = !paused;
+      heroPause.classList.toggle('is-paused', paused);
+      heroPause.setAttribute('aria-pressed', String(paused));
+      heroPause.setAttribute('aria-label', paused ? '자동 재생 시작' : '자동 재생 일시정지');
+      start();
+    });
+
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        goTo(Number(dot.dataset.slide));
+        start();
+      });
+    });
+
+    let dragStartX = null;
+    heroVisual.addEventListener('pointerdown', (e) => {
+      dragStartX = e.clientX;
+      heroVisual.classList.add('is-dragging');
+    });
+    window.addEventListener('pointerup', (e) => {
+      if (dragStartX === null) return;
+      const delta = e.clientX - dragStartX;
+      dragStartX = null;
+      heroVisual.classList.remove('is-dragging');
+      const THRESHOLD = 40;
+      if (delta <= -THRESHOLD) { next(); start(); }
+      else if (delta >= THRESHOLD) { goTo(current - 1); start(); }
+    });
+    window.addEventListener('pointercancel', () => {
+      dragStartX = null;
+      heroVisual.classList.remove('is-dragging');
+    });
+
+    render();
+    start();
+  }
+
   navLinks.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
       navLinks.classList.remove('is-open');
