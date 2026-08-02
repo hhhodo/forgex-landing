@@ -193,10 +193,12 @@
     const applyDots = () => {
       dotsRaf = null;
       dots.forEach(({ el, x, y }) => {
-        if (!pointer) { el.style.transform = 'scale(1)'; return; }
+        if (!pointer) { el.style.transform = 'scale(1)'; el.style.opacity = '.4'; return; }
         const dist = Math.hypot(pointer.x - x, pointer.y - y);
         const scale = Math.min(2.8, Math.max(0.5, 2.8 - dist / 60));
+        const opacity = Math.min(1, Math.max(.4, 1 - dist / 220));
         el.style.transform = `scale(${scale})`;
+        el.style.opacity = String(opacity);
       });
     };
     const scheduleDots = () => { if (!dotsRaf) dotsRaf = requestAnimationFrame(applyDots); };

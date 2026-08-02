@@ -1,11 +1,16 @@
 /* =========================================================
-   FORGEX — 산업·제조 스마트 매뉴팩처링 랜딩페이지
+   FORGEX — IT/클라우드 인프라 스마트 파트너 랜딩페이지
    컴포넌트 전용. styles.css(디자인 키트)는 수정하지 않음.
    variant: typo=medium / image=high / color=dominant / image-radius=round(32px) /
             card-radius=round(32px) / button-radius=round / border=hairline /
             button-style=solid+outline / fw=700/400 / spacing=space-11
    자간/행간은 styles.css 토큰(--tracking-kr 등) 상속만 사용, 임의 값 없음.
    ========================================================= */
+
+:root{
+  /* 인터랙션 원(활성 dot, 호버 등)에만 쓰는 포인트 컬러 — 본문 텍스트에는 사용하지 않음 */
+  --color-accent-lime:#C6FA2D;
+}
 
 .gcell{min-width:0;}
 
@@ -59,7 +64,7 @@
 .hero__desc{color:var(--text-subtle);}
 .hero__dots{position:absolute;right:var(--space-7);bottom:var(--space-7);z-index:1;display:flex;align-items:center;gap:var(--space-2);}
 .hero__dot{width:6px;height:6px;padding:0;border:none;border-radius:var(--radius-circle);background:var(--color-primary-300);cursor:pointer;}
-.hero__dot.is-active{background:var(--text-default);}
+.hero__dot.is-active{background:var(--color-accent-lime);}
 .hero__pause{display:flex;align-items:center;margin-inline-start:var(--space-3);padding:0;border:none;background:none;cursor:pointer;}
 .hero__pause-icon{display:flex;gap:2px;}
 .hero__pause-icon span{width:2px;height:12px;background:var(--text-default);display:block;}
@@ -112,12 +117,14 @@
 .pill--ghost{border:1px solid rgba(255,255,255,.7);background:rgba(255,255,255,.12);color:var(--text-default-inverse);}
 .showcase__nav{display:flex;align-items:center;justify-content:center;gap:var(--space-5);margin-block-start:var(--space-6);}
 .showcase__arrow{display:flex;align-items:center;justify-content:center;width:36px;height:36px;
-  border-radius:var(--radius-circle);border:var(--border-1);background:none;cursor:pointer;}
+  border-radius:var(--radius-circle);border:var(--border-1);background:none;cursor:pointer;
+  transition:border-color .2s ease;}
+.showcase__arrow:hover,.showcase__arrow:focus-visible{border-color:var(--color-accent-lime);}
 .showcase__arrow img{display:block;}
 .showcase__dots{display:flex;align-items:center;gap:var(--space-2);}
 .showcase__dot{width:8px;height:8px;border-radius:var(--radius-circle);background:rgba(20,20,20,.18);
   border:none;padding:0;cursor:pointer;}
-.showcase__dot.is-active{background:var(--color-primary-900);}
+.showcase__dot.is-active{background:var(--color-accent-lime);}
 
 /* ---------- capabilities (dark) ---------- */
 .capabilities{background:var(--color-primary-900);color:var(--text-default-inverse);}
@@ -129,7 +136,7 @@
 .capability-graphic{display:flex;align-items:center;justify-content:center;padding:var(--space-6);}
 .capability-graphic svg{width:100%;max-width:280px;height:auto;}
 .capability-graphic circle:not(.dot){fill:none;stroke:var(--color-primary-600);stroke-width:1;}
-.capability-graphic .dot{fill:var(--text-default-inverse);}
+.capability-graphic .dot{fill:var(--color-accent-lime);}
 
 /* ---------- reviews (캡슐형 카드 무한 마퀴 — 레퍼런스: rounded-full 포토/인용 카드 교차) ---------- */
 .reviews__head{max-width:640px;margin-inline:auto;margin-block-end:var(--space-8);}
@@ -154,7 +161,8 @@
   color:var(--text-default-inverse);padding-block:var(--space-section);}
 .cta__dots{position:absolute;inset:0;pointer-events:none;}
 .cta__dot{position:absolute;width:4px;height:4px;margin:-2px 0 0 -2px;border-radius:var(--radius-circle);
-  background:var(--color-primary-600);transform:scale(1);transition:transform .2s ease-out;}
+  background:var(--color-accent-lime);opacity:.4;transform:scale(1);
+  transition:transform .2s ease-out,opacity .2s ease-out;}
 .cta__inner{position:relative;z-index:1;max-width:720px;margin-inline:auto;text-align:center;}
 .cta__badge{background:var(--color-primary-800);color:var(--text-default-inverse);margin-block-end:var(--space-5);}
 .cta__title{margin-block-end:var(--space-5);}
