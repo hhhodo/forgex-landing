@@ -1,13 +1,17 @@
 /* =========================================================
    FORGEX — 산업·제조 스마트 매뉴팩처링 랜딩페이지
    컴포넌트 전용. styles.css(디자인 키트)는 수정하지 않음.
-   variant: typo=medium / image=high / color=dominant / image-radius=soft /
-            card-radius=soft / button-radius=round / border=hairline /
+   variant: typo=medium / image=high / color=dominant / image-radius=round(32px) /
+            card-radius=round(32px) / button-radius=round / border=hairline /
             button-style=solid+outline / fw=700/400 / spacing=space-11
    자간/행간은 styles.css 토큰(--tracking-kr 등) 상속만 사용, 임의 값 없음.
    ========================================================= */
 
 .gcell{min-width:0;}
+
+/* partner 섹션 이미지가 스크롤 중 잠깐 멈췄다 다음으로 넘어가도록,
+   해당 카드에만 스냅 포인트를 둠(proximity라 다른 섹션 스크롤엔 영향 없음) */
+html{scroll-snap-type:y proximity;}
 
 /* ---------- eyebrow / badge (배경 없음, 본문 크기) ---------- */
 .eyebrow{font-size:var(--fs-body-1);font-weight:var(--fw-strong);
@@ -16,8 +20,8 @@
 .eyebrow--inverse{color:var(--text-subtle-inverse);}
 .badge{background:none;padding:0;border-radius:0;font-size:var(--fs-body-1);}
 
-/* ---------- image radius (soft) ---------- */
-.img{border-radius:var(--radius-sm);overflow:hidden;}
+/* ---------- image radius (round, 32px) ---------- */
+.img{border-radius:var(--radius-lg);overflow:hidden;}
 .img--circle{border-radius:var(--radius-circle);}
 
 /* ---------- buttons ---------- */
@@ -46,7 +50,7 @@
 /* ---------- hero (좌우 패널이 동일한 전체 높이를 공유, 텍스트는 패널 하단에 오버레이) ---------- */
 .hero{padding-block-start:var(--space-9);padding-block-end:var(--space-section);}
 .hero__grid{align-items:stretch;}
-.hero__visual{position:relative;overflow:hidden;background:var(--color-placeholder);border-radius:var(--radius-sm);
+.hero__visual{position:relative;overflow:hidden;background:var(--color-placeholder);border-radius:var(--radius-lg);
   padding:var(--space-7);touch-action:pan-y;cursor:grab;}
 .hero__visual.is-dragging{cursor:grabbing;}
 .hero__slides{position:relative;height:100%;}
@@ -66,7 +70,7 @@
   border-color:transparent transparent transparent var(--text-default);}
 .hero__pause.is-paused .hero__pause-icon span{display:none;}
 .hero__stack{display:flex;flex-direction:column;gap:var(--grid-gutter-lg);align-self:start;width:100%;}
-.hero__card{flex:none;width:100%;aspect-ratio:1/1;padding:var(--space-6);border-radius:var(--radius-sm);
+.hero__card{flex:none;width:100%;aspect-ratio:1/1;padding:var(--space-6);border-radius:var(--radius-lg);
   background:var(--color-placeholder);display:flex;flex-direction:column;justify-content:flex-end;}
 .hero__card-text{color:var(--text-subtle);}
 .hero__card--dark{background:var(--color-primary-900);color:var(--text-default-inverse);
@@ -79,8 +83,9 @@
 .partner__thumbs{display:flex;gap:var(--space-3);margin-block-start:var(--space-6);}
 .partner__thumbs .img{flex:1;}
 .partner__info{position:sticky;top:calc(88px + var(--space-6));}
-.partner__stack{display:flex;flex-direction:column;gap:0;}
-.partner__frame{position:sticky;top:calc(88px + var(--space-6));background:var(--color-canvas);}
+.partner__stack{display:flex;flex-direction:column;gap:var(--space-5);}
+.partner__frame{position:sticky;top:calc(88px + var(--space-6));background:var(--color-canvas);
+  scroll-snap-align:start;}
 .partner__photo{aspect-ratio:7/5;}
 .partner__frame:nth-child(1){z-index:1;}
 .partner__frame:nth-child(2){z-index:2;}
