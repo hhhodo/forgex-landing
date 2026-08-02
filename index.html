@@ -6,7 +6,7 @@
   3. Partner      — 5-7 (좌측 sticky 고정 / 우측은 겹침 없이 스크롤 스냅으로 잠깐 멈춤)
   4. Showcase     — full-bleed 가로 스크롤 슬라이드 (중앙 카드 확대, 좌우 축소·페이드)
   5. Capabilities — full-bleed, dark — 6-6 × 4행 (행마다 좌우 교차)
-  6. Reviews      — 3-3-3-3 (카드 프레임 없이 원형 이미지 + 캡션만)
+  6. Reviews      — 캡슐형(rounded-full) 포토/인용 카드가 교차하는 무한 가로 마퀴
   7. CTA          — full-bleed, dark (마우스 위치 기반 인터랙티브 도트 그리드)
   8. Footer       — full-bleed — 8-4 (CONTACT 컬럼만 유지, 구독 폼 제거)
 -->
@@ -18,8 +18,8 @@
 <title>FORGEX — 정밀 제조를 위한 스마트 매뉴팩처링 파트너</title>
 <meta name="description" content="설계부터 양산까지, FORGEX가 만드는 신뢰할 수 있는 제조 인프라. 자동화, 품질관리, 물류자동화, 설비유지보수 솔루션을 제공합니다.">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-<link rel="stylesheet" href="css/styles.css?v=13">
-<link rel="stylesheet" href="css/site.css?v=13">
+<link rel="stylesheet" href="css/styles.css?v=14">
+<link rel="stylesheet" href="css/site.css?v=14">
 <noscript><style>[data-reveal]{opacity:1!important;transform:none!important;}</style></noscript>
 </head>
 <body>
@@ -218,34 +218,65 @@
     </div>
   </section>
 
-  <!-- ============ REVIEWS — 3-3-3-3 ============ -->
-  <section class="section" id="reviews">
+  <!-- ============ REVIEWS — 캡슐형 카드 가로 마퀴 (레퍼런스: 사진/인용 캡슐이 교차하는 무한 스크롤) ============ -->
+  <section class="section reviews-marquee" id="reviews">
     <div class="container container--wide">
       <div class="reviews__head" data-reveal>
         <p class="eyebrow" style="text-align:center;">CUSTOMER STORY</p>
         <h2 class="h1" style="text-align:center;">도입 기업들의<br>생생한 후기</h2>
         <p class="body-2 subtle" style="text-align:center;">FORGEX 솔루션을 도입한 기업들의 실제 변화를 확인하세요.</p>
       </div>
-      <div class="grid" data-reveal>
-        <div class="gcell review-card" style="grid-column:1/4;">
-          <div class="img img--1-1 img--circle review-card__photo"></div>
-          <p class="body-2 review-card__quote">"라인 정지 시간이 절반으로 줄었습니다. 예지 정비 알림 덕분에 미리 대응할 수 있었어요."</p>
-          <p class="body-2 subtle review-card__meta">A자동차 생산관리팀</p>
+    </div>
+    <div class="reviews-track" data-reveal>
+      <div class="reviews-track__inner">
+        <div class="review-pill review-pill--photo"><img src="assets/images/mkbtg033615.jpg" alt="A자동차 생산 라인" loading="lazy"></div>
+        <div class="review-pill review-pill--quote">
+          <p class="review-pill__cat">자동화</p>
+          <p class="review-pill__quote">"라인 정지 시간이 절반으로 줄었습니다. 예지 정비 알림 덕분에 미리 대응할 수 있었어요."</p>
+          <p class="review-pill__meta">A자동차 생산관리팀</p>
         </div>
-        <div class="gcell review-card" style="grid-column:4/7;">
-          <div class="img img--1-1 img--circle review-card__photo"></div>
-          <p class="body-2 review-card__quote">"전수 검사 자동화 이후 불량 유출 클레임이 눈에 띄게 감소했습니다."</p>
-          <p class="body-2 subtle review-card__meta">B반도체 품질보증팀</p>
+        <div class="review-pill review-pill--photo"><img src="assets/images/pc0010064641.jpg" alt="B반도체 클린룸 설비" loading="lazy"></div>
+        <div class="review-pill review-pill--quote">
+          <p class="review-pill__cat">품질관리</p>
+          <p class="review-pill__quote">"전수 검사 자동화 이후 불량 유출 클레임이 눈에 띄게 감소했습니다."</p>
+          <p class="review-pill__meta">B반도체 품질보증팀</p>
         </div>
-        <div class="gcell review-card" style="grid-column:7/10;">
-          <div class="img img--1-1 img--circle review-card__photo"></div>
-          <p class="body-2 review-card__quote">"재고 오차가 사실상 사라졌고, 출고 리드타임도 크게 단축됐습니다."</p>
-          <p class="body-2 subtle review-card__meta">C물류센터 운영팀</p>
+        <div class="review-pill review-pill--photo"><img src="assets/images/pc002161909.jpg" alt="C물류센터 자동화 창고" loading="lazy"></div>
+        <div class="review-pill review-pill--quote">
+          <p class="review-pill__cat">물류자동화</p>
+          <p class="review-pill__quote">"재고 오차가 사실상 사라졌고, 출고 리드타임도 크게 단축됐습니다."</p>
+          <p class="review-pill__meta">C물류센터 운영팀</p>
         </div>
-        <div class="gcell review-card" style="grid-column:10/13;">
-          <div class="img img--1-1 img--circle review-card__photo"></div>
-          <p class="body-2 review-card__quote">"공차 관리가 까다로운 부품도 안정적으로 양산할 수 있게 됐습니다."</p>
-          <p class="body-2 subtle review-card__meta">D정밀가공 대표</p>
+        <div class="review-pill review-pill--photo"><img src="assets/images/afinis-group-afinis-gasket-production-OnbSOhz0oig-unsplash.jpg" alt="D정밀가공 부품 생산" loading="lazy"></div>
+        <div class="review-pill review-pill--quote">
+          <p class="review-pill__cat">정밀가공</p>
+          <p class="review-pill__quote">"공차 관리가 까다로운 부품도 안정적으로 양산할 수 있게 됐습니다."</p>
+          <p class="review-pill__meta">D정밀가공 대표</p>
+        </div>
+        <!-- duplicate set for seamless loop -->
+        <div class="review-pill review-pill--photo" aria-hidden="true"><img src="assets/images/mkbtg033615.jpg" alt="" loading="lazy"></div>
+        <div class="review-pill review-pill--quote" aria-hidden="true">
+          <p class="review-pill__cat">자동화</p>
+          <p class="review-pill__quote">"라인 정지 시간이 절반으로 줄었습니다. 예지 정비 알림 덕분에 미리 대응할 수 있었어요."</p>
+          <p class="review-pill__meta">A자동차 생산관리팀</p>
+        </div>
+        <div class="review-pill review-pill--photo" aria-hidden="true"><img src="assets/images/pc0010064641.jpg" alt="" loading="lazy"></div>
+        <div class="review-pill review-pill--quote" aria-hidden="true">
+          <p class="review-pill__cat">품질관리</p>
+          <p class="review-pill__quote">"전수 검사 자동화 이후 불량 유출 클레임이 눈에 띄게 감소했습니다."</p>
+          <p class="review-pill__meta">B반도체 품질보증팀</p>
+        </div>
+        <div class="review-pill review-pill--photo" aria-hidden="true"><img src="assets/images/pc002161909.jpg" alt="" loading="lazy"></div>
+        <div class="review-pill review-pill--quote" aria-hidden="true">
+          <p class="review-pill__cat">물류자동화</p>
+          <p class="review-pill__quote">"재고 오차가 사실상 사라졌고, 출고 리드타임도 크게 단축됐습니다."</p>
+          <p class="review-pill__meta">C물류센터 운영팀</p>
+        </div>
+        <div class="review-pill review-pill--photo" aria-hidden="true"><img src="assets/images/afinis-group-afinis-gasket-production-OnbSOhz0oig-unsplash.jpg" alt="" loading="lazy"></div>
+        <div class="review-pill review-pill--quote" aria-hidden="true">
+          <p class="review-pill__cat">정밀가공</p>
+          <p class="review-pill__quote">"공차 관리가 까다로운 부품도 안정적으로 양산할 수 있게 됐습니다."</p>
+          <p class="review-pill__meta">D정밀가공 대표</p>
         </div>
       </div>
     </div>
@@ -293,6 +324,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=13"></script>
+<script src="js/main.js?v=14"></script>
 </body>
 </html>

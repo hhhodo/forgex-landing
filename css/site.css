@@ -117,12 +117,23 @@ html{scroll-snap-type:y proximity;}
 .capability-graphic circle:not(.dot){fill:none;stroke:var(--color-primary-600);stroke-width:1;}
 .capability-graphic .dot{fill:var(--text-default-inverse);}
 
-/* ---------- reviews (카드 프레임 없음, 원형 이미지 + 캡션) ---------- */
+/* ---------- reviews (캡슐형 카드 무한 마퀴 — 레퍼런스: rounded-full 포토/인용 카드 교차) ---------- */
 .reviews__head{max-width:640px;margin-inline:auto;margin-block-end:var(--space-8);}
-.review-card{text-align:center;}
-.review-card__photo{width:120px;height:120px;margin-inline:auto;margin-block-end:var(--space-5);}
-.review-card__quote{color:var(--text-subtle);margin-block-end:var(--space-4);}
-.review-card__meta{font-weight:var(--fw-strong);}
+.reviews-marquee{overflow:hidden;}
+.reviews-track{overflow:hidden;}
+.reviews-track__inner{display:flex;align-items:stretch;gap:var(--space-6);width:max-content;
+  animation:reviews-marquee 44s linear infinite;}
+.reviews-track:hover .reviews-track__inner{animation-play-state:paused;}
+@keyframes reviews-marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.review-pill{flex:0 0 auto;width:300px;height:430px;border-radius:var(--radius-circle);
+  overflow:hidden;background:var(--color-canvas);border:var(--border-1);}
+.review-pill--photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.review-pill--quote{display:flex;flex-direction:column;justify-content:center;
+  padding:var(--space-9) var(--space-6);text-align:left;}
+.review-pill__cat{font-size:var(--fs-body-1);font-weight:var(--fw-strong);color:var(--text-subtle);
+  margin-block-end:var(--space-6);}
+.review-pill__quote{font-size:var(--fs-body-2);color:var(--text-default);margin-block-end:var(--space-5);}
+.review-pill__meta{font-size:var(--fs-body-2);font-weight:var(--fw-strong);color:var(--text-subtle);}
 
 /* ---------- cta (마우스 인터랙티브 도트 그리드) ---------- */
 .cta{position:relative;overflow:hidden;background:var(--color-primary-900);
@@ -173,4 +184,6 @@ html{scroll-snap-type:y proximity;}
   .hero__foot{flex-direction:column;align-items:flex-start;}
   .partner__thumbs{flex-wrap:wrap;}
   .showcase__track{padding-inline:var(--gutter);}
+  .review-pill{width:220px;height:320px;}
+  .review-pill--quote{padding:var(--space-6) var(--space-5);}
 }
