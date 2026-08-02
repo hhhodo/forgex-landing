@@ -1,0 +1,292 @@
+<!-- variant: typo=medium / image=high / color=dominant / image-radius=soft / card-radius=soft / button-radius=round / border=hairline / button-style=solid+outline / fw=700/400 / spacing=space-11 -->
+<!--
+  layout:
+  1. Header       — full-bleed (sticky nav)
+  2. Hero         — full-bleed — 8-4 (우측 4는 2단 스택: 정보 카드 + 다크 CTA 카드, 우측 컬럼 상단 오프셋)
+  3. Partner      — 5-7 (좌: 텍스트+썸네일 4장 / 우: 세로 스택 이미지 5장)
+  4. Showcase     — 3-3-3-3 (원형 산업분야 카드, 2·4번째 카드 하단 오프셋)
+  5. Capabilities — full-bleed, dark — 6-6 × 4행 (행마다 좌우 교차)
+  6. Reviews      — 3-3-3-3 (도입 후기 카드)
+  7. CTA          — full-bleed, dark
+  8. Footer       — full-bleed — 4-8 (우측 컬럼 오프셋)
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FORGEX — 정밀 제조를 위한 스마트 매뉴팩처링 파트너</title>
+<meta name="description" content="설계부터 양산까지, FORGEX가 만드는 신뢰할 수 있는 제조 인프라. 자동화, 품질관리, 물류자동화, 설비유지보수 솔루션을 제공합니다.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/site.css">
+<noscript><style>[data-reveal]{opacity:1!important;transform:none!important;}</style></noscript>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="container nav__row">
+    <a href="#top" class="nav__mark">FORGEX</a>
+    <nav class="nav__links" id="navLinks">
+      <a href="#partner">회사소개</a>
+      <a href="#capabilities">솔루션</a>
+      <a href="#reviews">도입사례</a>
+      <a href="#contact" class="btn btn--outline nav__cta">상담 신청</a>
+    </nav>
+    <button class="nav__toggle" id="navToggle" aria-label="메뉴 열기" aria-expanded="false">
+      <svg width="22" height="16" viewBox="0 0 22 16" fill="none"><path d="M0 1H22" stroke="currentColor" stroke-width="1.5"/><path d="M0 8H22" stroke="currentColor" stroke-width="1.5"/><path d="M0 15H22" stroke="currentColor" stroke-width="1.5"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO — 8-4 ============ -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="grid hero__grid" data-reveal>
+        <div class="gcell hero__visual" style="grid-column:1/9;">
+          <p class="badge hero__badge">SMART MANUFACTURING PARTNER</p>
+          <h1 class="hero__title">흔들림 없는 생산 라인을<br>만드는 정밀 제조 파트너</h1>
+          <div class="img img--16-9 hero__photo"></div>
+          <div class="hero__foot">
+            <p class="hero__desc measure">설계부터 양산까지, FORGEX가 만드는 신뢰할 수 있는 제조 인프라를 경험하세요. 자동화 설비와 품질관리 시스템으로 멈추지 않는 생산성을 지원합니다.</p>
+            <a href="#capabilities" class="btn btn--solid">솔루션 살펴보기</a>
+          </div>
+        </div>
+        <div class="gcell hero__stack" style="grid-column:9/13;">
+          <div class="hero__card">
+            <p class="eyebrow">SINCE 1998</p>
+            <h3 class="h3">27년간 축적된<br>정밀 가공 기술</h3>
+            <p class="body-2 subtle">국내 3개 생산거점에서 자동차, 반도체, 물류 산업의 핵심 부품을 공급합니다.</p>
+          </div>
+          <div class="hero__card hero__card--dark">
+            <h3 class="h3">언제나<br>안정적인 품질</h3>
+            <p class="body-2 hero__card-body">24시간 품질 모니터링 시스템으로 불량률 0.02% 이하를 유지합니다.</p>
+            <a href="#contact" class="btn btn--outline btn--on-dark">도입 문의</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PARTNER — 5-7 ============ -->
+  <section class="section" id="partner">
+    <div class="container grid" data-reveal>
+      <div class="gcell" style="grid-column:1/6;">
+        <p class="eyebrow">신뢰를 만드는 방식</p>
+        <h2 class="h1 partner__title">믿을 수 있는<br>생산 파트너, FORGEX</h2>
+        <p class="body-2 subtle partner__body measure">FORGEX는 자동차 부품, 반도체 장비, 산업용 로봇 등 다양한 산업 현장에 정밀 부품과 자동화 설비를 공급합니다. 설계·가공·조립·검수까지 전 공정을 사내에서 통합 관리해 납기와 품질을 동시에 지킵니다.</p>
+        <p class="body-2 subtle partner__body measure">국내 3개 생산거점과 해외 2개 파트너 공장을 통해 대량 생산부터 소량 다품종 생산까지 유연하게 대응합니다.</p>
+        <div class="partner__thumbs">
+          <div class="img img--1-1"></div>
+          <div class="img img--1-1"></div>
+          <div class="img img--1-1"></div>
+          <div class="img img--1-1"></div>
+        </div>
+      </div>
+      <div class="gcell partner__stack" style="grid-column:6/13;">
+        <div class="partner__frame"><div class="img img--16-9"></div><span class="tag">CNC 가공 라인</span></div>
+        <div class="partner__frame"><div class="img img--16-9"></div><span class="tag">자동화 조립 셀</span></div>
+        <div class="partner__frame"><div class="img img--16-9"></div><span class="tag">품질 검사 존</span></div>
+        <div class="partner__frame"><div class="img img--16-9"></div><span class="tag">물류 자동화 창고</span></div>
+        <div class="partner__frame"><div class="img img--16-9"></div><span class="tag">연구개발센터</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SHOWCASE — 3-3-3-3 ============ -->
+  <section class="section" id="showcase">
+    <div class="container">
+      <div class="showcase__head" data-reveal>
+        <p class="eyebrow" style="text-align:center;">INDUSTRY COVERAGE</p>
+        <h2 class="h1" style="text-align:center;">생산 현장의 어려움을 줄이고<br>안정적인 운영을 지원합니다</h2>
+        <p class="body-2 subtle" style="text-align:center;">업종에 특화된 자동화 설계로 다운타임을 최소화합니다.</p>
+      </div>
+      <div class="grid showcase__grid" data-reveal>
+        <div class="gcell showcase__card" style="grid-column:1/4;">
+          <div class="img img--1-1 img--circle showcase__photo"></div>
+          <h3 class="h3">자동차 부품</h3>
+          <p class="body-2 subtle">24시간 무중단 생산 라인</p>
+        </div>
+        <div class="gcell showcase__card showcase__card--offset" style="grid-column:4/7;">
+          <div class="img img--1-1 img--circle showcase__photo"></div>
+          <h3 class="h3">반도체 장비</h3>
+          <p class="body-2 subtle">초정밀 클린룸 대응 설비</p>
+        </div>
+        <div class="gcell showcase__card" style="grid-column:7/10;">
+          <div class="img img--1-1 img--circle showcase__photo"></div>
+          <h3 class="h3">물류 자동화</h3>
+          <p class="body-2 subtle">AGV 기반 스마트 창고</p>
+        </div>
+        <div class="gcell showcase__card showcase__card--offset" style="grid-column:10/13;">
+          <div class="img img--1-1 img--circle showcase__photo"></div>
+          <h3 class="h3">정밀 가공</h3>
+          <p class="body-2 subtle">마이크로미터 단위 공차 관리</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CAPABILITIES (dark) — 6-6 × 4 ============ -->
+  <section class="section capabilities" id="capabilities">
+    <div class="container">
+      <div class="capabilities__head" data-reveal>
+        <p class="eyebrow eyebrow--inverse" style="text-align:center;">MANUFACTURING SOLUTION</p>
+        <h2 class="h1" style="text-align:center;color:var(--text-default-inverse);">최적의 생산성을 위한<br>제조 솔루션</h2>
+      </div>
+
+      <div class="grid capability-row" data-reveal>
+        <div class="gcell" style="grid-column:1/7;">
+          <div class="capability-graphic capability-graphic--a" aria-hidden="true">
+            <svg viewBox="0 0 260 200"><circle cx="90" cy="80" r="60"/><circle cx="150" cy="80" r="60"/><circle cx="120" cy="130" r="60"/>
+              <circle class="dot" cx="90" cy="80" r="3"/><circle class="dot" cx="150" cy="80" r="3"/><circle class="dot" cx="120" cy="130" r="3"/></svg>
+          </div>
+        </div>
+        <div class="gcell capability-text" style="grid-column:7/13;">
+          <h3 class="h2">AUTOMATION.</h3>
+          <p class="body-2 capability-body">로봇 팔과 컨베이어 시스템을 연동해 사람의 개입 없이도 24시간 안정적인 생산이 가능합니다. 설비 이상 징후는 센서 데이터로 사전에 감지합니다.</p>
+        </div>
+      </div>
+
+      <div class="grid capability-row" data-reveal>
+        <div class="gcell capability-text" style="grid-column:1/7;">
+          <h3 class="h2">QUALITY.</h3>
+          <p class="body-2 capability-body">전수 비전 검사와 AI 결함 판독으로 불량 유출을 원천 차단합니다. 검사 데이터는 실시간으로 생산 라인에 피드백됩니다.</p>
+        </div>
+        <div class="gcell" style="grid-column:7/13;">
+          <div class="capability-graphic capability-graphic--b" aria-hidden="true">
+            <svg viewBox="0 0 260 200"><circle cx="130" cy="60" r="50"/><circle cx="80" cy="140" r="50"/><circle cx="180" cy="140" r="50"/>
+              <circle class="dot" cx="130" cy="60" r="3"/><circle class="dot" cx="80" cy="140" r="3"/><circle class="dot" cx="180" cy="140" r="3"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid capability-row" data-reveal>
+        <div class="gcell" style="grid-column:1/7;">
+          <div class="capability-graphic capability-graphic--c" aria-hidden="true">
+            <svg viewBox="0 0 260 200"><circle cx="70" cy="70" r="46"/><circle cx="140" cy="55" r="46"/><circle cx="190" cy="110" r="46"/><circle cx="120" cy="140" r="46"/>
+              <circle class="dot" cx="70" cy="70" r="3"/><circle class="dot" cx="140" cy="55" r="3"/><circle class="dot" cx="190" cy="110" r="3"/><circle class="dot" cx="120" cy="140" r="3"/></svg>
+          </div>
+        </div>
+        <div class="gcell capability-text" style="grid-column:7/13;">
+          <h3 class="h2">LOGISTICS.</h3>
+          <p class="body-2 capability-body">입고부터 출하까지 WMS와 연동된 자동화 물류로 재고 오차율을 줄이고 리드타임을 단축합니다.</p>
+        </div>
+      </div>
+
+      <div class="grid capability-row" data-reveal>
+        <div class="gcell capability-text" style="grid-column:1/7;">
+          <h3 class="h2">MAINTENANCE.</h3>
+          <p class="body-2 capability-body">예지 정비 시스템이 설비 마모를 미리 예측해 계획되지 않은 가동 중단을 최소화합니다.</p>
+        </div>
+        <div class="gcell" style="grid-column:7/13;">
+          <div class="capability-graphic capability-graphic--d" aria-hidden="true">
+            <svg viewBox="0 0 260 200"><circle cx="130" cy="100" r="55"/><circle cx="90" cy="70" r="55"/><circle cx="170" cy="70" r="55"/>
+              <circle class="dot" cx="130" cy="100" r="3"/><circle class="dot" cx="90" cy="70" r="3"/><circle class="dot" cx="170" cy="70" r="3"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REVIEWS — 3-3-3-3 ============ -->
+  <section class="section" id="reviews">
+    <div class="container">
+      <div class="reviews__head" data-reveal>
+        <p class="eyebrow" style="text-align:center;">CUSTOMER STORY</p>
+        <h2 class="h1" style="text-align:center;">도입 기업들의<br>생생한 후기</h2>
+        <p class="body-2 subtle" style="text-align:center;">FORGEX 솔루션을 도입한 기업들의 실제 변화를 확인하세요.</p>
+      </div>
+      <div class="grid" data-reveal>
+        <div class="gcell review-card" style="grid-column:1/4;">
+          <div class="img img--1-1 img--circle review-card__photo"></div>
+          <p class="body-2 review-card__quote">"라인 정지 시간이 절반으로 줄었습니다. 예지 정비 알림 덕분에 미리 대응할 수 있었어요."</p>
+          <p class="body-2 subtle review-card__meta">A자동차 생산관리팀</p>
+        </div>
+        <div class="gcell review-card" style="grid-column:4/7;">
+          <div class="img img--1-1 img--circle review-card__photo"></div>
+          <p class="body-2 review-card__quote">"전수 검사 자동화 이후 불량 유출 클레임이 눈에 띄게 감소했습니다."</p>
+          <p class="body-2 subtle review-card__meta">B반도체 품질보증팀</p>
+        </div>
+        <div class="gcell review-card" style="grid-column:7/10;">
+          <div class="img img--1-1 img--circle review-card__photo"></div>
+          <p class="body-2 review-card__quote">"재고 오차가 사실상 사라졌고, 출고 리드타임도 크게 단축됐습니다."</p>
+          <p class="body-2 subtle review-card__meta">C물류센터 운영팀</p>
+        </div>
+        <div class="gcell review-card" style="grid-column:10/13;">
+          <div class="img img--1-1 img--circle review-card__photo"></div>
+          <p class="body-2 review-card__quote">"공차 관리가 까다로운 부품도 안정적으로 양산할 수 있게 됐습니다."</p>
+          <p class="body-2 subtle review-card__meta">D정밀가공 대표</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA (dark, full-bleed) ============ -->
+  <section class="cta" id="contact">
+    <div class="container cta__inner" data-reveal>
+      <p class="badge cta__badge">지금 상담 신청</p>
+      <h2 class="h1 cta__title">생산성의 기준을<br>바꾸는 시간</h2>
+      <p class="body-2 cta__desc measure">FORGEX와 함께라면 복잡한 생산 공정도 단순해집니다. 지금 바로 전문 컨설턴트와 상담하세요.</p>
+      <a href="mailto:contact@forgex.co.kr" class="btn btn--on-light">무료 상담 신청하기</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER — 4-8 ============ -->
+<footer class="footer">
+  <div class="container grid" data-reveal>
+    <div class="gcell" style="grid-column:1/5;">
+      <p class="footer__mark">FORGEX</p>
+      <h2 class="h1 footer__title">SMART MANUFACTURING,<br>PRECISION DELIVERED.</h2>
+    </div>
+    <div class="gcell footer__cols" style="grid-column:5/13;">
+      <div class="footer__col">
+        <p class="eyebrow eyebrow--inverse">COMPANY</p>
+        <ul>
+          <li><a href="#partner">회사소개</a></li>
+          <li><a href="#partner">연혁</a></li>
+          <li><a href="#contact">인재채용</a></li>
+          <li><a href="#contact">오시는 길</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <p class="eyebrow eyebrow--inverse">SOLUTIONS</p>
+        <ul>
+          <li><a href="#capabilities">자동화</a></li>
+          <li><a href="#capabilities">품질관리</a></li>
+          <li><a href="#capabilities">물류자동화</a></li>
+          <li><a href="#capabilities">설비유지보수</a></li>
+        </ul>
+      </div>
+      <div class="footer__col footer__col--offset">
+        <p class="eyebrow eyebrow--inverse">CONTACT</p>
+        <ul class="footer__contact-list">
+          <li>대표전화 02-1234-5678</li>
+          <li>이메일 contact@forgex.co.kr</li>
+          <li>경기도 화성시 산업로 123</li>
+        </ul>
+      </div>
+    </div>
+    <div class="gcell footer__subscribe" style="grid-column:1/13;">
+      <form class="footer__form" onsubmit="return false;">
+        <input class="footer__input" type="email" placeholder="이메일 주소를 입력하세요" aria-label="이메일 주소">
+        <button type="submit" class="btn btn--on-light">구독하기</button>
+      </form>
+      <div class="footer__bottom">
+        <p class="body-2 footer__copyright">© 2026 FORGEX. All rights reserved.</p>
+        <div class="footer__social" aria-hidden="true">
+          <span class="footer__social-dot"></span>
+          <span class="footer__social-dot"></span>
+          <span class="footer__social-dot"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
